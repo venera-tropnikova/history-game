@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07122b">
+  <meta
+    name="description"
+    content="Образовательное путешествие по событиям Космической эры"
+  >
+  <title>Космическая эра — путешествие во времени</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="space-background" aria-hidden="true">
+    <span class="star-field star-field--near"></span>
+    <span class="star-field star-field--far"></span>
+    <span class="space-glow"></span>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#/" aria-label="На главный экран">
+      <span class="brand__mark" aria-hidden="true">⌁</span>
+      <span>
+        <strong>Хроносфера</strong>
+        <small>экспедиция в историю</small>
+      </span>
+    </a>
+    <div class="topbar__progress" id="header-progress" aria-live="polite"></div>
+  </header>
+
+  <main id="app" class="app" tabindex="-1"></main>
+
+  <footer class="footer">
+    <span>Прототип образовательной игры</span>
+    <button class="text-button" id="reset-progress" type="button">
+      Сбросить прогресс
+    </button>
+  </footer>
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
