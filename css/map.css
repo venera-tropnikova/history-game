@@ -1,0 +1,23 @@
+*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;background:#020b18}body{font-family:Inter,"Segoe UI",Arial,sans-serif;overflow-x:hidden}.world-map{position:relative;width:min(100vw,1536px);aspect-ratio:3/2;margin:0 auto;background:#020b18;overflow:hidden;box-shadow:0 0 80px #000}.world-map__art{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;user-select:none;-webkit-user-drag:none}.hotspot{position:absolute;z-index:5;border-radius:50%;outline:none;text-decoration:none}.hotspot[href]{cursor:pointer}.hotspot[href]:hover,.hotspot[href]:focus-visible{box-shadow:0 0 0 5px rgba(112,255,210,.42),0 0 40px 18px rgba(48,206,255,.38);transform:scale(1.025)}.hotspot span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.hotspot--dino{left:11.3%;top:14.2%;width:23.7%;height:28.5%}.hotspot--egypt{left:37.5%;top:16.7%;width:23.5%;height:27%}.hotspot--medieval{left:64.5%;top:15%;width:24%;height:29%}.hotspot--travel{left:11.5%;top:44.5%;width:24%;height:31%}.hotspot--invent{left:37.5%;top:45%;width:24%;height:31%}.hotspot--space{left:63.5%;top:44%;width:25%;height:32%}.fragment-badge{position:absolute;z-index:6;right:3.4%;top:5.8%;font-weight:900;font-size:clamp(12px,1.4vw,22px);color:#f3d4ff;text-shadow:0 2px 8px #000;pointer-events:none}.dino-complete .hotspot--dino{box-shadow:0 0 35px 12px rgba(107,255,120,.4)}@media(max-width:800px){body{overflow:auto}.world-map{width:1000px;max-width:none;transform-origin:top left}.fragment-badge{font-size:15px}}
+.hotspot--dino:after{content:"НАЧАТЬ";position:absolute;left:50%;bottom:2%;transform:translateX(-50%);padding:.5em 1.05em;border-radius:999px;background:linear-gradient(#b6ff75,#43c93d);color:#12320f;font-weight:1000;font-size:clamp(11px,1.15vw,18px);box-shadow:0 0 0 3px rgba(255,255,255,.75),0 0 28px rgba(93,255,93,.95);text-shadow:none;animation:dinoPulse 1.5s ease-in-out infinite;white-space:nowrap}.hotspot--dino:hover:after{transform:translateX(-50%) scale(1.08)}@keyframes dinoPulse{50%{box-shadow:0 0 0 6px rgba(255,255,255,.35),0 0 40px rgba(93,255,93,1)}}
+
+/* v155 — visible screen name: Карта времени (cover legacy baked title) */
+.map-title-override{
+  position:absolute;z-index:4;left:28.5%;top:1.6%;width:43%;height:10.5%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at center,#071a39 0%,#031126 62%,rgba(2,11,24,.96) 100%);
+  color:#ffd34f;font-weight:1000;font-size:clamp(30px,4.8vw,74px);line-height:1;
+  letter-spacing:.025em;text-shadow:0 3px 0 #9a5b08,0 0 8px #fff2a6,0 0 22px #e7a928;
+  pointer-events:none;border-radius:20px;
+}
+
+/* v156 — use the approved generated Карта времени artwork directly. */
+.map-title-override{display:none!important}
+
+/* v157 — remove the obsolete Chronofragments counter baked into the old artwork. */
+.fragment-badge{display:none!important}
+.map-clean-cover{position:absolute;z-index:4;right:1.8%;top:1.2%;width:18.5%;height:9.2%;border-radius:22px;background:radial-gradient(ellipse at 50% 40%,#061b37 0%,#020b18 72%);box-shadow:0 0 28px rgba(20,83,145,.22);pointer-events:none}
+
+/* v158 — new clean generated Time Map already contains title, Start, Achievements and Settings. */
+.map-clean-cover{display:none!important}
+.hotspot--dino:after{display:none!important}

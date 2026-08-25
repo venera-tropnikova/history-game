@@ -3,51 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07122b">
-  <meta
-    name="description"
-    content="Образовательное путешествие по событиям Космической эры"
-  >
-  <title>Космическая эра — путешествие во времени</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="theme-color" content="#020b18">
+  <title>Карта времени — экспедиции</title>
+  <link rel="stylesheet" href="css/map.css">
 </head>
 <body>
-  <div class="space-background" aria-hidden="true">
-    <span class="star-field star-field--near"></span>
-    <span class="star-field star-field--far"></span>
-    <span class="space-glow"></span>
-  </div>
-
-  <header class="topbar">
-    <a class="brand" href="#/" aria-label="На главный экран">
-      <span class="brand__mark" aria-hidden="true">⌁</span>
-      <span>
-        <strong>Хроносфера</strong>
-        <small>экспедиция в историю</small>
-      </span>
-    </a>
-    <div class="topbar__progress" id="header-progress" aria-live="polite"></div>
-  </header>
-
-  <main id="app" class="app" tabindex="-1"></main>
-
-  <footer class="footer">
-    <span>Прототип образовательной игры</span>
-    <button class="text-button" id="reset-progress" type="button">
-      Сбросить прогресс
-    </button>
-  </footer>
-
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-    aria-live="polite"
-    aria-atomic="true"
-  ></div>
-
-  <script src="js/data.js"></script>
-  <script src="js/storage.js"></script>
-  <script src="js/app.js"></script>
+  <main class="world-map" aria-label="Карта времени">
+    <img class="world-map__art" src="assets/map-time-final.png" alt="Яркая Карта времени с юным исследователем и шестью эпохами">
+    <a class="hotspot hotspot--dino" href="dinosaurs.html" aria-label="Начать экспедицию Мир динозавров"><span>Мир динозавров</span></a>
+    <a class="hotspot hotspot--egypt" href="egypt.html" aria-label="Начать экспедицию Тайны Древнего Египта"><span>Тайны Древнего Египта</span></a>
+    <div class="hotspot hotspot--medieval locked" aria-label="Средневековый город — закрыто"></div>
+    <div class="hotspot hotspot--travel locked" aria-label="Великие путешествия — закрыто"></div>
+    <div class="hotspot hotspot--invent locked" aria-label="Изобретения, изменившие мир — закрыто"></div>
+    <a class="hotspot hotspot--space" href="cosmic.html" aria-label="Открыть Космическую эру"><span>Космическая эра</span></a>
+  </main>
+  <script>
+    (function(){
+      var done = localStorage.getItem('chronosphere-dino-complete') === '1';
+      if(done) document.body.classList.add('dino-complete');
+    })();
+  </script>
 </body>
 </html>

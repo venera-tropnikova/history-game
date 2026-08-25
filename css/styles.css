@@ -2498,7 +2498,7 @@ button.scene-satellite.is-returning {
   top: 64%;
   border: 0;
   border-radius: 50% 50% 42% 42% / 42% 42% 58% 58%;
-  background-image: url("../assets/images/earth-1957.jpg");
+  background-image: url("../assets/earth-1957.png");
   background-size: cover;
   background-position: center 48%;
   box-shadow:

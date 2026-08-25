@@ -1,0 +1,1034 @@
+/* Egypt expedition — skeleton UI, placeholders instead of final art. */
+
+:root {
+  --sand: #f4e6c4;
+  --sand-dark: #e2cc96;
+  --ink: #2a2114;
+  --muted: #5c4d32;
+  --nile: #1b8a9a;
+  --nile-deep: #0e5c6b;
+  --gold: #e2b23a;
+  --gold-dark: #9a6f12;
+  --stone: #6b5a42;
+  --ok: #2f8a3a;
+  --bad: #b54532;
+  --panel: linear-gradient(180deg, #fff6df, #ead7a8);
+  --topbar: 64px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: #1a140c;
+  color: var(--ink);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+button, a { font: inherit; }
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #f0c44a;
+  outline-offset: 3px;
+}
+
+.egypt-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: var(--topbar);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: #1a140c;
+  border-bottom: 1px solid #5a4630;
+}
+
+.egypt-home {
+  color: #2a1c08;
+  text-decoration: none;
+  font-weight: 900;
+  padding: 10px 16px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 14px;
+  background: linear-gradient(#ffe08a, #e2b23a);
+  box-shadow: 0 0 16px rgba(226, 178, 58, 0.35);
+}
+
+.egypt-progress {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.egypt-progress i {
+  width: 28px;
+  height: 6px;
+  border-radius: 99px;
+  background: #3a3024;
+}
+
+.egypt-progress i.on {
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+}
+
+.egypt-reset {
+  min-height: 44px;
+  padding: 8px 12px;
+  color: #ead9b0;
+  background: #2a2114;
+  border: 1px solid #5a4630;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.egypt-app {
+  width: min(1080px, calc(100% - 24px));
+  margin: 12px auto 24px;
+  outline: none;
+}
+
+.panel {
+  position: relative;
+  min-height: 520px;
+  padding: 22px 22px 64px;
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+.stage-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stage-head strong {
+  width: 100%;
+  color: #7a5410;
+  letter-spacing: 0.04em;
+  font-size: 14px;
+}
+
+.stage-home {
+  color: #2a1c08;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 8px 12px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 12px;
+  background: #f0d78a;
+}
+
+.stage-count {
+  margin-left: auto;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 8px 0 10px;
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1.1;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 800;
+}
+
+p { margin: 0 0 12px; font-size: 18px; line-height: 1.35; }
+
+.lead { font-size: 20px; font-weight: 700; }
+
+.primary,
+.choice,
+.glyph-card,
+.seq-card,
+.layer-btn {
+  min-height: 52px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primary {
+  color: #1c1408;
+  background: linear-gradient(#ffe08a, #e2b23a);
+  box-shadow: 0 5px 0 #9a6f12;
+}
+
+.primary:disabled {
+  opacity: 0.45;
+  cursor: default;
+  box-shadow: none;
+}
+
+.choices {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.choice {
+  text-align: left;
+  background: #fffaf0;
+  border: 2px solid #d7c08a;
+  color: var(--ink);
+}
+
+.choice.correct {
+  background: #d7f3c8;
+  border-color: var(--ok);
+}
+
+.choice.wrong {
+  background: #f8d2c8;
+  border-color: var(--bad);
+  animation: shake 0.45s;
+}
+
+@keyframes shake {
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.feedback {
+  min-height: 28px;
+  font-weight: 800;
+}
+
+.feedback.ok { color: var(--ok); }
+.feedback.try { color: var(--bad); }
+
+/* Placeholders — swap for real art later via [data-placeholder] */
+.ph {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  min-height: 180px;
+  margin: 8px 0 14px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ph::after {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  content: "заглушка";
+}
+
+.ph--intro {
+  min-height: 200px;
+  background:
+    linear-gradient(#7ec8e0 0 42%, #e2c078 42% 70%, #c9a056 70%);
+}
+
+.ph--intro .pyramid {
+  width: 0;
+  height: 0;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-bottom: 110px solid #c9a45a;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 6px 0 #8a6a30);
+}
+
+.ph--nile {
+  min-height: 210px;
+  background: #d8b56a;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.nile-land {
+  width: 100%;
+  height: 70px;
+  background: #c4a050;
+  transition: background 0.4s;
+}
+
+.nile-land.fertile { background: #6aa84f; }
+
+.nile-river {
+  width: 100%;
+  height: 28px;
+  background: #c9b07a;
+  transition: height 0.4s, background 0.4s;
+}
+
+.nile-river.water { height: 46px; background: var(--nile); }
+.nile-river.flood {
+  height: 78px;
+  background: linear-gradient(#3aa0b4, var(--nile-deep));
+}
+
+.ph--pyramids {
+  min-height: 220px;
+  background: linear-gradient(#87b7d2 0 48%, #e0c07a 48%);
+  align-items: flex-end;
+  gap: 18px;
+  padding-bottom: 12px;
+}
+
+.giza {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.giza .pyr {
+  width: 0;
+  border-style: solid;
+  border-color: transparent transparent #c9a45a transparent;
+}
+
+.giza .pyr.khufu { border-width: 0 54px 96px 54px; }
+.giza .pyr.mid { border-width: 0 40px 72px 40px; opacity: 0.92; }
+.giza .pyr.small { border-width: 0 28px 52px 28px; opacity: 0.88; }
+
+.stack {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 6px;
+  min-height: 150px;
+  margin: 8px 0;
+}
+
+.stack .slot {
+  min-height: 44px;
+  border-radius: 10px;
+  border: 2px dashed #c4a86a;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.stack .slot.filled {
+  border-style: solid;
+  background: #d7b56a;
+}
+
+.layers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.layer-btn {
+  background: #efe0b8;
+  border: 2px solid #c4a86a;
+}
+
+.layer-btn.used { opacity: 0.35; }
+
+.ph--glyphs {
+  min-height: 120px;
+  background: #e8d2a0;
+}
+
+.glyph-grid,
+.meaning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.glyph-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: #fffaf0;
+  border: 2px solid #d7c08a;
+}
+
+.glyph-card .sign {
+  font-size: 42px;
+  line-height: 1;
+  font-family: "Segoe UI Historic", "Noto Sans Egyptian Hieroglyphs", "Segoe UI Symbol", serif;
+}
+
+.glyph-card.picked { box-shadow: 0 0 0 3px var(--gold); }
+.glyph-card.matched,
+.choice.matched {
+  background: #d7f3c8;
+  border-color: var(--ok);
+}
+
+.seq-row {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.seq-card { background: #fffaf0; border: 2px solid #d7c08a; text-align: left; }
+.seq-card.done { background: #d7f3c8; border-color: var(--ok); }
+
+.quiz-n { color: var(--muted); font-weight: 800; }
+
+.reward {
+  text-align: center;
+  padding-top: 28px;
+}
+
+.reward .ph--intro { margin: 0 auto 16px; max-width: 420px; }
+
+.reward-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.reward-actions a.primary {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.slide-nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: rgba(245, 230, 190, 0.95);
+}
+
+.slide-nav button {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid #c4a86a;
+  background: #fff8e8;
+  font-size: 22px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.slide-nav button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.egypt-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: #2a2114;
+  color: #fff8e8;
+  font-weight: 700;
+  opacity: 0;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f0d78a;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+@media (max-width: 700px) {
+  .egypt-reset { display: none; }
+  .glyph-grid, .meaning-grid { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 28px; }
+  p, .lead, .choice { font-size: 16px; }
+}
+
+/* Final visual layer: approved Egypt expedition art */
+:root {
+  --sand: #f2d28a;
+  --ink: #21160a;
+  --muted: #6f5327;
+  --nile: #21a8c7;
+  --gold: #f3bd3f;
+  --panel: linear-gradient(180deg, #fff3cf 0%, #efd29a 100%);
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #18354b 0, #0c1722 42%, #090b10 100%);
+}
+
+.egypt-topbar {
+  background: rgba(9, 13, 18, .96);
+  border-bottom-color: rgba(243, 189, 63, .3);
+}
+
+.egypt-app { max-width: 1180px; }
+
+.panel {
+  min-height: 620px;
+  padding: 20px 20px 76px;
+  border: 1px solid rgba(243, 189, 63, .35);
+  background: var(--panel);
+}
+
+.scene-art {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 10px 0 16px;
+  border-radius: 18px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.15), 0 10px 28px rgba(45,29,8,.22);
+}
+
+.scene-intro { background-image: linear-gradient(90deg, rgba(8,12,16,.10), rgba(8,12,16,0)), url('../assets/egypt/intro-giza.png'); }
+.scene-nile { background-image: url('../assets/egypt/nile.png'); background-position: center 58%; }
+.scene-nile.nile-step-2, .scene-nile.nile-step-3 { box-shadow: inset 0 -36px 70px rgba(28,132,157,.24), 0 10px 28px rgba(45,29,8,.22); }
+.scene-giza { background-image: url('../assets/egypt/giza.png'); background-position: center 48%; }
+.scene-glyphs { background-image: url('../assets/egypt/glyphs.png'); background-position: center 52%; }
+.scene-pharaoh { background-image: url('../assets/egypt/pharaoh.png'); background-position: center 50%; }
+.scene-reward { background-image: url('../assets/egypt/reward.png'); background-position: center 43%; }
+
+.panel > h1, .panel > h2, .panel > p, .stage-head, .hero-badges,
+.panel > .choices, .panel > .feedback, .panel > .primary,
+.panel > .layers, .panel > .stack, .panel > .glyph-grid,
+.panel > .meaning-grid, .panel > .seq-row, .panel > .reward-actions {
+  position: relative;
+  z-index: 2;
+}
+
+.primary { font-size: 17px; }
+.choice, .layer-btn, .glyph-card, .seq-card { font-size: 16px; }
+
+.reward { text-align: left; padding-top: 20px; }
+.reward .scene-reward { max-width: none; }
+.reward-actions { justify-content: flex-start; }
+
+@media (min-width: 760px) {
+  .panel { padding: 24px 28px 80px; }
+  .scene-art { max-height: 520px; object-fit: cover; }
+  .choices { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .glyph-grid, .meaning-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .seq-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  :root { --topbar: 58px; }
+  .egypt-topbar { padding: 6px 10px; }
+  .egypt-home { min-height: 46px; padding: 9px 12px; font-size: 15px; }
+  .egypt-progress i { width: 18px; }
+  .egypt-app { width: calc(100% - 12px); margin: 6px auto 18px; }
+  .panel { min-height: 0; padding: 14px 12px 70px; border-radius: 18px; }
+  .stage-head { margin-bottom: 8px; }
+  .stage-head strong { font-size: 12px; }
+  .stage-home { min-height: 44px; }
+  .scene-art { aspect-ratio: 4 / 5; margin: 8px 0 14px; border-radius: 14px; }
+  .scene-intro { background-position: 43% center; }
+  .scene-nile { background-position: 45% center; }
+  .scene-giza { background-position: 43% center; }
+  .scene-glyphs { background-position: 48% center; }
+  .scene-pharaoh { background-position: 45% center; }
+  .scene-reward { background-position: 38% center; }
+  h1 { margin-top: 6px; font-size: 29px; }
+  h2 { font-size: 22px; }
+  p, .lead, .choice { font-size: 16px; }
+  .primary, .choice, .glyph-card, .seq-card, .layer-btn { min-height: 50px; }
+  .stack { min-height: 130px; }
+  .reward { text-align: left; }
+  .reward-actions { justify-content: stretch; }
+  .reward-actions > * { width: 100%; justify-content: center; }
+}
+
+/* Mission 3: learn first, then practise */
+.learn-box, .practice-box {
+  margin-top: 10px;
+}
+.learn-box h3, .practice-box h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  color: #6b3d0a;
+}
+.glyph-lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+.glyph-lesson-card {
+  min-height: 132px;
+  padding: 12px;
+  border: 2px solid #d7c08a;
+  border-radius: 12px;
+  background: #fffaf0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+.glyph-lesson-card .sign {
+  font-size: 46px;
+  line-height: 1;
+  font-family: "Segoe UI Historic", "Noto Sans Egyptian Hieroglyphs", "Segoe UI Symbol", serif;
+}
+.glyph-lesson-card strong {
+  font-size: 18px;
+  color: #0b6849;
+}
+.glyph-lesson-card span:last-child {
+  font-size: 14px;
+  line-height: 1.25;
+  color: #60491f;
+}
+@media (max-width: 700px) {
+  .glyph-lesson-grid { grid-template-columns: 1fr 1fr; }
+  .glyph-lesson-card { min-height: 122px; }
+  .glyph-lesson-card span:last-child { font-size: 15px; }
+}
+
+/* Mission 2: learn first, then place real stone blocks into the pyramid */
+.pyramid-build { position: relative; overflow: hidden; }
+.pyramid-target { position: absolute; inset: 0; pointer-events: none; }
+.stone-slot {
+  position: absolute;
+  width: 9%;
+  aspect-ratio: 1.55 / 1;
+  border: 3px dashed rgba(255, 238, 180, .92);
+  border-radius: 5px;
+  background: rgba(92, 57, 19, .20);
+  box-shadow: 0 0 0 2px rgba(84, 48, 13, .22);
+  display: grid;
+  place-items: center;
+  color: #4b2d0b;
+  font-weight: 900;
+  font-size: 22px;
+}
+.stone-slot-1 { left: 62%; top: 62%; }
+.stone-slot-2 { left: 57%; top: 54%; }
+.stone-slot-3 { left: 52%; top: 46%; }
+.stone-slot.filled {
+  border-style: solid;
+  border-color: #b98a43;
+  background: linear-gradient(145deg, #d8b36d, #b98843);
+  box-shadow: inset 0 2px 5px rgba(255,245,202,.42), 0 3px 6px rgba(54,31,8,.28);
+}
+.pyramid-action { margin-top: 4px; }
+.stone-tray { display: flex; align-items: center; gap: 12px; margin: 10px 0 4px; }
+.stone-block {
+  min-width: 190px;
+  min-height: 64px;
+  padding: 10px 20px;
+  border: 2px solid #9b6c2f;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #e0bd78, #bd8d48);
+  box-shadow: inset 0 3px 5px rgba(255,245,205,.42), 0 5px 0 #8f6225;
+  color: #3c260c;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+.stone-block:active { transform: translateY(3px); box-shadow: inset 0 2px 4px rgba(255,245,205,.35), 0 2px 0 #8f6225; }
+.build-progress { color: #6f5327; font-weight: 700; }
+.pyramid-lesson p { max-width: 900px; line-height: 1.45; }
+
+@media (max-width: 700px) {
+  .stone-slot { width: 15%; border-width: 2px; }
+  .stone-slot-1 { left: 62%; top: 65%; }
+  .stone-slot-2 { left: 57%; top: 56%; }
+  .stone-slot-3 { left: 52%; top: 47%; }
+  .stone-block { width: 100%; min-width: 0; min-height: 58px; }
+}
+
+/* Learning-first pass: Nile, pyramids, gods, quiz feedback */
+.story-box,
+.action-story {
+  margin-top: 14px;
+  padding: 18px 20px;
+  border: 2px solid rgba(166, 112, 25, .32);
+  border-radius: 16px;
+  background: rgba(255, 249, 230, .82);
+}
+.story-box h3 {
+  margin: 0 0 10px;
+  font-size: 25px;
+  color: #6b3d0a;
+}
+.story-box p,
+.action-story p,
+.pyramid-lesson p {
+  font-size: 20px;
+  line-height: 1.48;
+}
+.story-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+.story-steps span {
+  padding: 14px;
+  border-radius: 12px;
+  background: #fffaf0;
+  border: 2px solid #d7c08a;
+  font-size: 18px;
+  text-align: center;
+}
+.praise {
+  padding: 13px 16px;
+  border-radius: 12px;
+  background: #e0f4d5;
+  border: 2px solid #62a957;
+  color: #236c2d !important;
+  font-size: 19px;
+}
+.scene-nile { position: relative; overflow: hidden; }
+.scene-nile .flood-water,
+.scene-nile .fertile-bank {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .45s ease, height .55s ease;
+}
+.scene-nile .flood-water {
+  height: 0;
+  background: linear-gradient(180deg, rgba(47,174,211,.22), rgba(12,111,148,.58));
+  box-shadow: inset 0 18px 24px rgba(119,220,245,.18);
+}
+.scene-nile.nile-step-1 .flood-water { opacity: .35; height: 16%; }
+.scene-nile.nile-step-2 .flood-water,
+.scene-nile.nile-step-3 .flood-water { opacity: .9; height: 42%; }
+.scene-nile .fertile-bank {
+  height: 13%;
+  background: linear-gradient(180deg, rgba(76,122,47,.15), rgba(76,122,47,.62));
+}
+.scene-nile.nile-step-2 .fertile-bank,
+.scene-nile.nile-step-3 .fertile-bank { opacity: .85; }
+.god-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 12px;
+  margin: 14px 0 18px;
+}
+.god-cards > div {
+  min-height: 105px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  border: 2px solid #d7c08a;
+  border-radius: 14px;
+  background: #fffaf0;
+  text-align: center;
+}
+.god-cards b { font-size: 22px; }
+.god-cards span { font-size: 17px; line-height: 1.35; }
+
+/* Final quiz should read as a compact challenge, not an empty sheet */
+.panel:has(.quiz-n) {
+  min-height: 0;
+  max-width: 900px;
+  margin-inline: auto;
+  padding-bottom: 84px;
+}
+.panel:has(.quiz-n) h2 { font-size: 28px; margin-top: 10px; }
+.panel:has(.quiz-n) .choices { margin-top: 18px; }
+.panel:has(.quiz-n) .choice { min-height: 62px; font-size: 18px; }
+
+@media (max-width: 700px) {
+  .story-box, .action-story { padding: 14px; }
+  .story-box h3 { font-size: 22px; }
+  .story-box p, .action-story p, .pyramid-lesson p { font-size: 18px; line-height: 1.45; }
+  .story-steps, .god-cards { grid-template-columns: 1fr; }
+  .story-steps span { font-size: 17px; text-align: left; }
+  .god-cards > div { min-height: 80px; }
+  .praise { font-size: 17px; }
+}
+
+/* Final learning/story polish */
+.scene-nile { background-image: url('../assets/egypt/nile-new.png'); background-position: center 50%; }
+.scene-glyphs { background-image: url('../assets/egypt/glyphs-new.png'); background-position: center 50%; }
+.scene-reward { background-image: url('../assets/egypt/reward-new.png'); background-position: center 46%; }
+.scene-nile .flood-water, .scene-nile .fertile-bank { display: none !important; }
+.story-box h3, .learn-box h3, .practice-box h3, .message-game h3 { font-size: 22px; margin: 0 0 8px; }
+.story-box p, .learn-box p, .practice-box p, .message-game p, .pyramid-action p { font-size: 18px; line-height: 1.45; }
+.primary { font-size: 17px; }
+
+/* Stone blocks must read as limestone, not UI squares */
+.stone-block { width: 210px; min-height: 72px; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 8px; background: linear-gradient(155deg,#d7b36d,#b8873f); border: 2px solid #8b6129; box-shadow: inset 0 2px 0 rgba(255,255,255,.35), 0 5px 0 #76501f; color:#3c280e; font-weight:900; }
+.stone-texture { width: 54px; height: 36px; border-radius: 3px; background: linear-gradient(145deg,#e1c58b,#b78a4d); border: 1px solid #89632f; box-shadow: inset -5px -5px 9px rgba(89,55,19,.15); }
+.stone-slot { border-radius: 4px !important; transform: skewX(-5deg); background: rgba(214,181,116,.18) !important; border: 3px dashed rgba(255,246,207,.9) !important; color:#4c310d; }
+.stone-slot.filled { background: linear-gradient(145deg,#d8b675,#b88949) !important; border: 2px solid #8c642e !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 3px 8px rgba(55,32,8,.28); font-size:24px; }
+
+.glyph-lesson-card, .glyph-card, .meaning-grid .choice { text-align:center; align-items:center; justify-content:center; }
+.glyph-lesson-card .sign, .glyph-card .sign { font-size: 38px; line-height: 1; }
+.glyph-lesson-card strong, .glyph-card span:last-child, .meaning-grid .choice { text-align:center; }
+.message-game { margin-top: 12px; padding: 16px; background: rgba(255,251,238,.75); border:1px solid rgba(156,109,24,.28); border-radius:14px; }
+.message-glyphs { display:flex; gap:14px; justify-content:center; margin:12px 0 16px; }
+.message-glyphs > span { min-width:120px; min-height:88px; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:40px; background:#fffaf0; border:1px solid #d5b36d; border-radius:12px; font-weight:800; }
+.message-glyphs small { font-size:15px; margin-top:6px; }
+.hint { font-size:14px !important; opacity:.8; }
+
+.quiz-panel { max-width: 900px; min-height: 0 !important; padding-bottom: 26px !important; }
+.quiz-panel .quiz-visual { height: 280px; min-height: 280px; margin: 6px 0 14px; }
+.quiz-panel .quiz-content { text-align:center; }
+.quiz-panel .quiz-n { margin: 4px 0 2px; }
+.quiz-panel h2 { text-align:center; margin: 4px 0 14px !important; }
+.quiz-panel .choices { margin: 0 auto 10px; }
+.quiz-panel .choice { text-align:center; justify-content:center; }
+.quiz-panel .feedback { min-height: 30px; text-align:center; font-size:18px; }
+.quiz-panel .primary { margin: 8px auto 0; display:block; }
+.reward { text-align:center; }
+.reward .scene-reward { height: 430px; background-position:center 44%; }
+.reward .reward-actions { justify-content:center; }
+
+@media (max-width: 700px) {
+  .story-box p, .learn-box p, .practice-box p, .message-game p, .pyramid-action p { font-size: 17px; }
+  .message-glyphs > span { min-width: 88px; min-height: 76px; font-size:32px; }
+  .quiz-panel .quiz-visual { height: 210px; min-height:210px; }
+  .reward .scene-reward { height: 330px; background-position:center center; }
+}
+.message-glyphs button, .message-result span { min-width:120px; min-height:88px; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:40px; background:#fffaf0; border:1px solid #d5b36d; border-radius:12px; font-weight:800; color:#211507; }
+.message-glyphs button { cursor:pointer; }
+.message-glyphs button:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(80,52,12,.15); }
+.message-result { display:flex; justify-content:center; gap:10px; margin:12px 0; }
+.message-result span { min-width:100px; min-height:72px; background:#f5e4b5; }
+.message-result small, .message-glyphs small { font-size:15px; margin-top:5px; }
+
+/* v6 clarity fixes */
+/* Mission 1 intentionally uses two different approved visuals: hero at the river, then the wide Nile landscape. */
+.scene-nile-boy { background-image: url('../assets/egypt/nile.png'); background-position: center 58%; }
+.scene-nile-landscape { background-image: url('../assets/egypt/nile-new.png'); background-position: center 50%; }
+
+.wonder-fact {
+  margin: 12px 0 16px !important;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(246,196,69,.28), rgba(255,250,234,.8));
+  border: 1px solid rgba(161,111,22,.35);
+  font-size: 18px !important;
+}
+
+/* Pyramid blocks are construction material, not UI check boxes. Completed targets disappear with the overlay. */
+.stone-slot {
+  width: 10%;
+  aspect-ratio: 1.9 / 1;
+  border-radius: 2px !important;
+  transform: perspective(120px) rotateX(2deg) skewX(-7deg);
+  border: 2px dashed rgba(255,244,205,.78) !important;
+  background: rgba(199,159,96,.10) !important;
+  box-shadow: none !important;
+}
+.stone-slot.filled {
+  border: 1px solid rgba(110,76,32,.8) !important;
+  background:
+    linear-gradient(155deg, rgba(239,210,150,.95), rgba(170,124,66,.96)),
+    repeating-linear-gradient(25deg, transparent 0 9px, rgba(88,57,25,.09) 10px 11px) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.35), 0 2px 4px rgba(50,30,10,.22) !important;
+}
+.stone-block {
+  background:
+    linear-gradient(155deg,#e2c58d,#ba8c4d),
+    repeating-linear-gradient(30deg, transparent 0 11px, rgba(87,55,21,.08) 12px 13px) !important;
+  border-radius: 4px !important;
+}
+
+/* Mission 3: factual recognition game, no invented 'sentence'. */
+.glyph-hunt {
+  margin-top: 12px;
+  padding: 16px 18px;
+  background: rgba(255,251,238,.80);
+  border: 1px solid rgba(156,109,24,.30);
+  border-radius: 14px;
+}
+.glyph-hunt h3 { margin: 0 0 8px; font-size: 22px; color:#6b3d0a; }
+.hunt-prompt { font-size: 19px !important; margin-bottom: 12px; }
+.glyph-hunt-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.glyph-hunt-btn {
+  width: 92px;
+  height: 92px;
+  display:grid;
+  place-items:center;
+  border-radius: 50%;
+  border: 2px solid #c79a46;
+  background: radial-gradient(circle at 35% 30%, #fff5d5, #dfbd79 68%, #b98234);
+  box-shadow: inset 0 2px rgba(255,255,255,.55), 0 4px 8px rgba(66,40,10,.16);
+  cursor:pointer;
+  color:#2c1b08;
+}
+.glyph-hunt-btn span { font-size: 46px; line-height:1; font-family:"Segoe UI Historic","Noto Sans Egyptian Hieroglyphs","Segoe UI Symbol",serif; }
+.glyph-hunt-btn:hover { transform: translateY(-2px); }
+.hunt-progress { text-align:center; margin:10px 0 0; font-size:16px !important; color:#6c532c; }
+
+/* Quiz CTA must never be hidden behind the slide navigation. */
+.quiz-panel { overflow: visible !important; padding-bottom: 92px !important; }
+.quiz-panel .quiz-content { position:relative; z-index:4; }
+.quiz-next-wrap { display:flex; justify-content:center; margin: 18px 0 8px; position:relative; z-index:6; }
+.quiz-next-btn { min-width: 220px; min-height: 54px; font-size:18px !important; }
+.quiz-panel .slide-nav { z-index:3; }
+.quiz-panel .slide-nav #slide-next { display:none; }
+
+@media (max-width:700px) {
+  .scene-nile-boy { background-position: 35% center; }
+  .scene-nile-landscape { background-position: 50% center; }
+  .wonder-fact { font-size:17px !important; }
+  .glyph-hunt-btn { width:74px; height:74px; }
+  .glyph-hunt-btn span { font-size:38px; }
+  .quiz-next-btn { width:100%; }
+}
+
+/* v7: tactile stones, explicit praise, and uncropped learning/final art */
+.stone-block, .stone-texture, .stone-slot, .stone-slot.filled {
+  clip-path: polygon(5% 14%, 18% 5%, 78% 2%, 95% 15%, 100% 78%, 88% 94%, 16% 98%, 2% 82%);
+  border-radius: 0 !important;
+}
+.stone-block {
+  width: 230px; min-height: 82px;
+  background: linear-gradient(145deg,#d8bd82 0%,#c39a59 48%,#a9793d 100%) !important;
+  border: 0 !important;
+  box-shadow: inset -9px -8px 13px rgba(73,45,18,.20), inset 5px 5px 9px rgba(255,242,198,.35), 0 5px 0 #76501f !important;
+}
+.stone-texture { width:62px; height:42px; border:0; background:linear-gradient(145deg,#ead29e,#b98a4b); }
+.stone-slot { border: 2px dashed rgba(255,244,205,.9) !important; }
+.mini-praise { margin:8px 0 0 !important; font-size:17px !important; font-weight:800; color:#13863b !important; }
+
+/* Show approved artwork completely instead of cropping it. */
+.scene-glyphs, .quiz-panel .quiz-visual, .reward .scene-reward {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-color: #ead19a;
+}
+.quiz-panel .quiz-visual { height: 330px; min-height:330px; }
+.reward .scene-reward { height:auto !important; aspect-ratio:1672/941; }
+
+
+/* v8: use the real stones in the approved scene instead of fake rectangular blocks. */
+.pyramid-target, .stone-slot, .stone-tray, .stone-block, .stone-texture { display:none !important; }
+.stone-pick-layer { position:absolute; inset:0; pointer-events:none; }
+.stone-pick {
+  position:absolute;
+  width:54px; height:54px;
+  border-radius:50%;
+  border:3px solid rgba(255,247,205,.96);
+  background:rgba(177,119,38,.88);
+  box-shadow:0 0 0 7px rgba(255,210,91,.22), 0 5px 12px rgba(53,31,8,.34);
+  color:#fff8dc;
+  font-weight:900;
+  font-size:20px;
+  display:none;
+  place-items:center;
+  pointer-events:auto;
+  cursor:pointer;
+}
+.stone-pick.active { display:grid; animation:stonePulse 1.35s ease-in-out infinite; }
+.stone-pick-1 { left:56%; top:70%; }
+.stone-pick-2 { left:64%; top:67%; }
+.stone-pick-3 { left:73%; top:72%; }
+@keyframes stonePulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.10)} }
+
+/* Keep all hieroglyph buttons visually consistent; the sun is a line symbol, not a filled emoji. */
+.glyph-card .sign, .glyph-lesson-card .sign, .glyph-hunt-btn span {
+  font-family:"Segoe UI Historic","Noto Sans Egyptian Hieroglyphs","Segoe UI Symbol",serif !important;
+  font-weight:400 !important;
+  font-variant-emoji:text;
+}
+.glyph-hunt-btn span { color:#2c1b08; }
+
+/* Larger final-check cards and full, uncropped artwork. */
+.quiz-panel {
+  width:min(1120px, calc(100% - 36px)) !important;
+  max-width:1120px !important;
+  padding:28px 32px 96px !important;
+}
+.quiz-panel .quiz-visual {
+  width:100%;
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:16/9;
+  background-size:contain !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+}
+.quiz-panel h2 { font-size:30px !important; }
+.quiz-panel .choice { min-height:68px !important; font-size:19px !important; }
+.quiz-panel .feedback { font-size:19px !important; padding:14px 18px; }
+.reward { width:min(1120px, calc(100% - 36px)) !important; max-width:1120px !important; }
+.reward .scene-reward { width:100%; background-size:contain !important; background-position:center !important; }
+
+@media (max-width:700px) {
+  .stone-pick { width:46px; height:46px; font-size:18px; }
+  .stone-pick-1 { left:55%; top:70%; }
+  .stone-pick-2 { left:65%; top:66%; }
+  .stone-pick-3 { left:75%; top:71%; }
+  .quiz-panel { width:100% !important; padding:18px 16px 88px !important; }
+  .quiz-panel h2 { font-size:24px !important; }
+  .quiz-panel .choice { min-height:58px !important; font-size:16px !important; }
+  .reward { width:100% !important; }
+}
+
+/* v9: navigation belongs to the expedition card, not to the browser-wide top edge. */
+.egypt-topbar {
+  position: relative !important;
+  width: min(1080px, calc(100% - 24px));
+  min-height: 52px !important;
+  margin: 12px auto 0;
+  padding: 0 10px 8px !important;
+  background: transparent !important;
+  border: 0 !important;
+  z-index: 20;
+}
+.egypt-app { margin-top: 0 !important; }
+.egypt-home { min-height: 42px !important; padding: 8px 13px !important; }
+.egypt-reset { margin-left: 8px; }
+/* Mission headers no longer repeat the map button; it is in the shared row above every card. */
+.stage-head { min-height: 24px; }
+/* Pyramid lesson is explanatory: no artificial numbered overlays on the real stones. */
+.stone-pick-layer, .stone-pick { display:none !important; }
+.pyramid-fact { margin-top: 12px; }
+/* One coherent line-art treatment for all four glyph controls. */
+.glyph-hunt-btn span, .glyph-lesson-card .sign, .glyph-card .sign {
+  font-family:"Noto Sans Egyptian Hieroglyphs","Segoe UI Historic","Segoe UI Symbol",serif !important;
+  font-weight:400 !important;
+  text-shadow:none !important;
+  color:#2c1b08 !important;
+}
+@media (max-width:700px) {
+  .egypt-topbar { width:100%; margin-top:6px; padding-left:8px !important; padding-right:8px !important; }
+  .egypt-progress { gap:4px; }
+  .egypt-progress i { width:18px; }
+}
+
+/* v10: three distinct pyramid visuals across the learning sequence. */
+.scene-pyramid-sitting { background-image: url('../assets/egypt/pyramid-boy-sitting.png'); background-position: center 58%; }
+.scene-pyramid-sphinx { background-image: url('../assets/egypt/pyramid-sphinx.png'); background-position: center 56%; }
