@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#020b18">
   <title>Карта времени — экспедиции</title>
+  <link rel="preload" as="image" href="assets/map-time-final.avif" type="image/avif">
   <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/media.css">
 </head>
 <body>
   <main class="world-map" aria-label="Карта времени">
-    <img class="world-map__art" src="assets/map-time-final.png" alt="Яркая Карта времени с юным исследователем и шестью эпохами">
+    <picture>
+      <source type="image/avif" srcset="assets/map-time-final.avif">
+      <source type="image/webp" srcset="assets/map-time-final.webp">
+      <img class="world-map__art" src="assets/map-time-final.png" alt="Яркая Карта времени с юным исследователем и шестью эпохами" fetchpriority="high" decoding="async">
+    </picture>
     <a class="hotspot hotspot--dino" href="dinosaurs.html" aria-label="Начать экспедицию Мир динозавров"><span>Мир динозавров</span></a>
     <a class="hotspot hotspot--egypt" href="egypt.html" aria-label="Начать экспедицию Тайны Древнего Египта"><span>Тайны Древнего Египта</span></a>
     <div class="hotspot hotspot--medieval locked" aria-label="Средневековый город — закрыто"></div>

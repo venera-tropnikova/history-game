@@ -1,0 +1,503 @@
+{
+  "count": 48,
+  "orig_bytes": 100140906,
+  "webp_payload_bytes": 13199482,
+  "avif_payload_bytes": 8978846,
+  "files": [
+    {
+      "file": "assets/dino/bird-ancient-unified.jpg",
+      "orig_bytes": 923890,
+      "size": [
+        1448,
+        1086
+      ],
+      "webp_bytes": 332210,
+      "avif_bytes": 223206
+    },
+    {
+      "file": "assets/dino/bird-cassowary-unified.jpg",
+      "orig_bytes": 950912,
+      "size": [
+        1448,
+        1086
+      ],
+      "webp_bytes": 364166,
+      "avif_bytes": 247193
+    },
+    {
+      "file": "assets/dino/bird-feathered-unified.jpg",
+      "orig_bytes": 1097945,
+      "size": [
+        1448,
+        1086
+      ],
+      "webp_bytes": 412070,
+      "avif_bytes": 283996
+    },
+    {
+      "file": "assets/dino/brachiosaurus-panorama-final.png",
+      "orig_bytes": 2837524,
+      "size": [
+        1979,
+        794
+      ],
+      "webp_bytes": 398318,
+      "avif_bytes": 277562
+    },
+    {
+      "file": "assets/dino/catastrophe-stage-approved-closed.png",
+      "orig_bytes": 1681611,
+      "size": [
+        1474,
+        615
+      ],
+      "webp_bytes": 160358,
+      "avif_bytes": 105278,
+      "alpha": true
+    },
+    {
+      "file": "assets/dino/catastrophe-stage-approved-open.jpg",
+      "orig_bytes": 404990,
+      "size": [
+        1474,
+        615
+      ],
+      "webp_bytes": 169596,
+      "avif_bytes": 113118
+    },
+    {
+      "file": "assets/dino/finding-footprint-cast.png",
+      "orig_bytes": 2865521,
+      "size": [
+        1536,
+        1024
+      ],
+      "webp_bytes": 378536,
+      "avif_bytes": 214110,
+      "alpha": true
+    },
+    {
+      "file": "assets/dino/finding-frill-generated.png",
+      "orig_bytes": 1890717,
+      "size": [
+        953,
+        1012
+      ],
+      "webp_bytes": 284934,
+      "avif_bytes": 174984,
+      "alpha": true
+    },
+    {
+      "file": "assets/dino/finding-plate-generated.png",
+      "orig_bytes": 1763457,
+      "size": [
+        908,
+        980
+      ],
+      "webp_bytes": 221034,
+      "avif_bytes": 170064,
+      "alpha": true
+    },
+    {
+      "file": "assets/dino/finding-tooth-generated.png",
+      "orig_bytes": 1147666,
+      "size": [
+        749,
+        910
+      ],
+      "webp_bytes": 100524,
+      "avif_bytes": 74612,
+      "alpha": true
+    },
+    {
+      "file": "assets/dino/hero-approved-v62.jpg",
+      "orig_bytes": 366819,
+      "size": [
+        1536,
+        1024
+      ],
+      "webp_bytes": 229748,
+      "avif_bytes": 177640
+    },
+    {
+      "file": "assets/dino/mission2-complete-scene-v153.png",
+      "orig_bytes": 2747486,
+      "size": [
+        1537,
+        1023
+      ],
+      "webp_bytes": 327938,
+      "avif_bytes": 203027
+    },
+    {
+      "file": "assets/dino/prehistoric-forest-bg-final.png",
+      "orig_bytes": 901391,
+      "size": [
+        895,
+        500
+      ],
+      "webp_bytes": 111814,
+      "avif_bytes": 84522
+    },
+    {
+      "file": "assets/dino/reward-final-v168.jpg",
+      "orig_bytes": 669178,
+      "size": [
+        1536,
+        730
+      ],
+      "webp_bytes": 369690,
+      "avif_bytes": 284968
+    },
+    {
+      "file": "assets/dino/stegosaurus-new.jpg",
+      "orig_bytes": 3107804,
+      "size": [
+        1536,
+        1024
+      ],
+      "webp_bytes": 388900,
+      "avif_bytes": 266216
+    },
+    {
+      "file": "assets/dino/stegosaurus-panorama-final.png",
+      "orig_bytes": 2795451,
+      "size": [
+        1979,
+        794
+      ],
+      "webp_bytes": 380306,
+      "avif_bytes": 255433
+    },
+    {
+      "file": "assets/dino/triceratops-new.jpg",
+      "orig_bytes": 3101464,
+      "size": [
+        1536,
+        1024
+      ],
+      "webp_bytes": 371036,
+      "avif_bytes": 241329
+    },
+    {
+      "file": "assets/dino/triceratops-panorama-final.png",
+      "orig_bytes": 2951254,
+      "size": [
+        1979,
+        794
+      ],
+      "webp_bytes": 427670,
+      "avif_bytes": 293741
+    },
+    {
+      "file": "assets/dino/tyrannosaurus-new.jpg",
+      "orig_bytes": 2967518,
+      "size": [
+        1536,
+        1024
+      ],
+      "webp_bytes": 347886,
+      "avif_bytes": 231835
+    },
+    {
+      "file": "assets/dino/tyrannosaurus-panorama-final.png",
+      "orig_bytes": 2830487,
+      "size": [
+        1979,
+        794
+      ],
+      "webp_bytes": 385940,
+      "avif_bytes": 261892
+    },
+    {
+      "file": "assets/dino-cards-new/stegosaurus.png",
+      "orig_bytes": 2473882,
+      "size": [
+        1200,
+        1320
+      ],
+      "webp_bytes": 317708,
+      "avif_bytes": 212958
+    },
+    {
+      "file": "assets/dino-cards-new/triceratops.png",
+      "orig_bytes": 2520936,
+      "size": [
+        1200,
+        1320
+      ],
+      "webp_bytes": 309982,
+      "avif_bytes": 196358
+    },
+    {
+      "file": "assets/dino-cards-new/tyrannosaurus.png",
+      "orig_bytes": 2321187,
+      "size": [
+        1200,
+        1320
+      ],
+      "webp_bytes": 268622,
+      "avif_bytes": 177212
+    },
+    {
+      "file": "assets/earth-1957.png",
+      "orig_bytes": 775041,
+      "size": [
+        1336,
+        487
+      ],
+      "webp_bytes": 52634,
+      "avif_bytes": 34946
+    },
+    {
+      "file": "assets/egypt/giza.png",
+      "orig_bytes": 2878823,
+      "size": [
+        1448,
+        1086
+      ],
+      "webp_bytes": 343210,
+      "avif_bytes": 241007
+    },
+    {
+      "file": "assets/egypt/glyph-crops/eye.png",
+      "orig_bytes": 165929,
+      "size": [
+        245,
+        310
+      ],
+      "webp_bytes": 24480,
+      "avif_bytes": 14738,
+      "alpha": true
+    },
+    {
+      "file": "assets/egypt/glyph-crops/falcon.png",
+      "orig_bytes": 182161,
+      "size": [
+        245,
+        330
+      ],
+      "webp_bytes": 29446,
+      "avif_bytes": 18417,
+      "alpha": true
+    },
+    {
+      "file": "assets/egypt/glyph-crops/life.png",
+      "orig_bytes": 136093,
+      "size": [
+        210,
+        310
+      ],
+      "webp_bytes": 20654,
+      "avif_bytes": 11414,
+      "alpha": true
+    },
+    {
+      "file": "assets/egypt/glyph-crops/sun.png",
+      "orig_bytes": 146848,
+      "size": [
+        220,
+        310
+      ],
+      "webp_bytes": 22622,
+      "avif_bytes": 13617,
+      "alpha": true
+    },
+    {
+      "file": "assets/egypt/glyphs-new.png",
+      "orig_bytes": 3867387,
+      "size": [
+        1672,
+        941
+      ],
+      "webp_bytes": 342842,
+      "avif_bytes": 215395,
+      "alpha": true
+    },
+    {
+      "file": "assets/egypt/glyphs.png",
+      "orig_bytes": 2672543,
+      "size": [
+        1448,
+        1086
+      ],
+      "webp_bytes": 296636,
+      "avif_bytes": 188141
+    },
+    {
+      "file": "assets/egypt/intro-giza.png",
+      "orig_bytes": 2650648,
+      "size": [
+        1672,
+        941
+      ],
+      "webp_bytes": 315736,
+      "avif_bytes": 203576
+    },
+    {
+      "file": "assets/egypt/nile-new.png",
+      "orig_bytes": 3919728,
+      "size": [
+        1672,
+        941
+      ],
+      "webp_bytes": 386516,
+      "avif_bytes": 262045,
+      "alpha": true
+    },
+    {
+      "file": "assets/egypt/nile.png",
+      "orig_bytes": 2909179,
+      "size": [
+        1672,
+        941
+      ],
+      "webp_bytes": 371224,
+      "avif_bytes": 266156
+    },
+    {
+      "file": "assets/egypt/pharaoh.png",
+      "orig_bytes": 2862149,
+      "size": [
+        1448,
+        1086
+      ],
+      "webp_bytes": 393806,
+      "avif_bytes": 256232
+    },
+    {
+      "file": "assets/egypt/pyramid-boy-sitting.png",
+      "orig_bytes": 3786029,
+      "size": [
+        1361,
+        1156
+      ],
+      "webp_bytes": 321926,
+      "avif_bytes": 226640,
+      "alpha": true
+    },
+    {
+      "file": "assets/egypt/pyramid-sphinx.png",
+      "orig_bytes": 3888563,
+      "size": [
+        1362,
+        1155
+      ],
+      "webp_bytes": 356322,
+      "avif_bytes": 257993,
+      "alpha": true
+    },
+    {
+      "file": "assets/egypt/reward-new.png",
+      "orig_bytes": 3919246,
+      "size": [
+        1672,
+        941
+      ],
+      "webp_bytes": 383226,
+      "avif_bytes": 240272,
+      "alpha": true
+    },
+    {
+      "file": "assets/egypt/reward.png",
+      "orig_bytes": 2728557,
+      "size": [
+        1448,
+        1086
+      ],
+      "webp_bytes": 333200,
+      "avif_bytes": 210359
+    },
+    {
+      "file": "assets/final-story-new/birds.png",
+      "orig_bytes": 1681304,
+      "size": [
+        1000,
+        1100
+      ],
+      "webp_bytes": 229392,
+      "avif_bytes": 165589
+    },
+    {
+      "file": "assets/final-story-new/catastrophe-clean.jpg",
+      "orig_bytes": 430734,
+      "size": [
+        1000,
+        1100
+      ],
+      "webp_bytes": 222360,
+      "avif_bytes": 171585
+    },
+    {
+      "file": "assets/final-story-new/dinosaurs.png",
+      "orig_bytes": 1875181,
+      "size": [
+        1000,
+        1100
+      ],
+      "webp_bytes": 304266,
+      "avif_bytes": 233928
+    },
+    {
+      "file": "assets/gagarin-1961-color.png",
+      "orig_bytes": 805184,
+      "size": [
+        618,
+        635
+      ],
+      "webp_bytes": 133464,
+      "avif_bytes": 47497,
+      "alpha": true
+    },
+    {
+      "file": "assets/gagarin-1961.png",
+      "orig_bytes": 2341047,
+      "size": [
+        1536,
+        1024
+      ],
+      "webp_bytes": 134072,
+      "avif_bytes": 97001
+    },
+    {
+      "file": "assets/hero-title-approved-v34.png",
+      "orig_bytes": 1967407,
+      "size": [
+        1448,
+        1086
+      ],
+      "webp_bytes": 175248,
+      "avif_bytes": 119026
+    },
+    {
+      "file": "assets/map-time-final.png",
+      "orig_bytes": 2855157,
+      "size": [
+        1536,
+        1024
+      ],
+      "webp_bytes": 386488,
+      "avif_bytes": 289580
+    },
+    {
+      "file": "assets/moon-1969.png",
+      "orig_bytes": 3524924,
+      "size": [
+        1536,
+        1024
+      ],
+      "webp_bytes": 410670,
+      "avif_bytes": 319418
+    },
+    {
+      "file": "assets/sputnik-1957-horizontal-final.png",
+      "orig_bytes": 1851954,
+      "size": [
+        1536,
+        1024
+      ],
+      "webp_bytes": 150056,
+      "avif_bytes": 103020
+    }
+  ]
+}

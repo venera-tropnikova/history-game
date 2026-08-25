@@ -1,0 +1,83 @@
+/* Progressive image formats and picture wrappers. Layout of originals is unchanged. */
+.world-map picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.order-card > picture,
+.final-story-card > picture {
+  min-height: 0;
+  flex: 1 1 auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.order-card__image-wrap > picture,
+.static-1957-visual > picture,
+.answer-option__image > picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.order-card__image-wrap img,
+.static-1957-visual img,
+.answer-option__image img,
+.final-story-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.static-1957-visual img {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+.guided-image-layer > picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.history-scene > picture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.reward-native > picture,
+.fossil-summary-stage > picture,
+.fossil-success--reveal > picture,
+.fossil-clue-image > picture,
+.approved-dino-card > picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.reward-native > picture {
+  height: auto;
+}
+
+.fossil-success--reveal > picture {
+  width: 190px;
+  height: 118px;
+}
+
+.fossil-tray .drag-item picture {
+  display: block;
+  line-height: 0;
+  flex: 0 0 auto;
+}
+

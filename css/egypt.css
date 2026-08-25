@@ -511,13 +511,13 @@ body {
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.15), 0 10px 28px rgba(45,29,8,.22);
 }
 
-.scene-intro { background-image: linear-gradient(90deg, rgba(8,12,16,.10), rgba(8,12,16,0)), url('../assets/egypt/intro-giza.png'); }
-.scene-nile { background-image: url('../assets/egypt/nile.png'); background-position: center 58%; }
+.scene-intro { background-image: linear-gradient(90deg, rgba(8,12,16,.10), rgba(8,12,16,0)), image-set(url('../assets/egypt/intro-giza.avif') type("image/avif"), url('../assets/egypt/intro-giza.webp') type("image/webp"), url('../assets/egypt/intro-giza.png') type("image/png")); }
+.scene-nile { background-image: image-set(url('../assets/egypt/nile.avif') type("image/avif"), url('../assets/egypt/nile.webp') type("image/webp"), url('../assets/egypt/nile.png') type("image/png")); background-position: center 58%; }
 .scene-nile.nile-step-2, .scene-nile.nile-step-3 { box-shadow: inset 0 -36px 70px rgba(28,132,157,.24), 0 10px 28px rgba(45,29,8,.22); }
-.scene-giza { background-image: url('../assets/egypt/giza.png'); background-position: center 48%; }
-.scene-glyphs { background-image: url('../assets/egypt/glyphs.png'); background-position: center 52%; }
-.scene-pharaoh { background-image: url('../assets/egypt/pharaoh.png'); background-position: center 50%; }
-.scene-reward { background-image: url('../assets/egypt/reward.png'); background-position: center 43%; }
+.scene-giza { background-image: image-set(url('../assets/egypt/giza.avif') type("image/avif"), url('../assets/egypt/giza.webp') type("image/webp"), url('../assets/egypt/giza.png') type("image/png")); background-position: center 48%; }
+.scene-glyphs { background-image: image-set(url('../assets/egypt/glyphs.avif') type("image/avif"), url('../assets/egypt/glyphs.webp') type("image/webp"), url('../assets/egypt/glyphs.png') type("image/png")); background-position: center 52%; }
+.scene-pharaoh { background-image: image-set(url('../assets/egypt/pharaoh.avif') type("image/avif"), url('../assets/egypt/pharaoh.webp') type("image/webp"), url('../assets/egypt/pharaoh.png') type("image/png")); background-position: center 50%; }
+.scene-reward { background-image: image-set(url('../assets/egypt/reward.avif') type("image/avif"), url('../assets/egypt/reward.webp') type("image/webp"), url('../assets/egypt/reward.png') type("image/png")); background-position: center 43%; }
 
 .panel > h1, .panel > h2, .panel > p, .stage-head, .hero-badges,
 .panel > .choices, .panel > .feedback, .panel > .primary,
@@ -777,9 +777,9 @@ body {
 }
 
 /* Final learning/story polish */
-.scene-nile { background-image: url('../assets/egypt/nile-new.png'); background-position: center 50%; }
-.scene-glyphs { background-image: url('../assets/egypt/glyphs-new.png'); background-position: center 50%; }
-.scene-reward { background-image: url('../assets/egypt/reward-new.png'); background-position: center 46%; }
+.scene-nile { background-image: image-set(url('../assets/egypt/nile-new.avif') type("image/avif"), url('../assets/egypt/nile-new.webp') type("image/webp"), url('../assets/egypt/nile-new.png') type("image/png")); background-position: center 50%; }
+.scene-glyphs { background-image: image-set(url('../assets/egypt/glyphs-new.avif') type("image/avif"), url('../assets/egypt/glyphs-new.webp') type("image/webp"), url('../assets/egypt/glyphs-new.png') type("image/png")); background-position: center 50%; }
+.scene-reward { background-image: image-set(url('../assets/egypt/reward-new.avif') type("image/avif"), url('../assets/egypt/reward-new.webp') type("image/webp"), url('../assets/egypt/reward-new.png') type("image/png")); background-position: center 46%; }
 .scene-nile .flood-water, .scene-nile .fertile-bank { display: none !important; }
 .story-box h3, .learn-box h3, .practice-box h3, .message-game h3 { font-size: 22px; margin: 0 0 8px; }
 .story-box p, .learn-box p, .practice-box p, .message-game p, .pyramid-action p { font-size: 18px; line-height: 1.45; }
@@ -828,8 +828,8 @@ body {
 
 /* v6 clarity fixes */
 /* Mission 1 intentionally uses two different approved visuals: hero at the river, then the wide Nile landscape. */
-.scene-nile-boy { background-image: url('../assets/egypt/nile.png'); background-position: center 58%; }
-.scene-nile-landscape { background-image: url('../assets/egypt/nile-new.png'); background-position: center 50%; }
+.scene-nile-boy { background-image: image-set(url('../assets/egypt/nile.avif') type("image/avif"), url('../assets/egypt/nile.webp') type("image/webp"), url('../assets/egypt/nile.png') type("image/png")); background-position: center 58%; }
+.scene-nile-landscape { background-image: image-set(url('../assets/egypt/nile-new.avif') type("image/avif"), url('../assets/egypt/nile-new.webp') type("image/webp"), url('../assets/egypt/nile-new.png') type("image/png")); background-position: center 50%; }
 
 .wonder-fact {
   margin: 12px 0 16px !important;
@@ -1030,5 +1030,5 @@ body {
 }
 
 /* v10: three distinct pyramid visuals across the learning sequence. */
-.scene-pyramid-sitting { background-image: url('../assets/egypt/pyramid-boy-sitting.png'); background-position: center 58%; }
-.scene-pyramid-sphinx { background-image: url('../assets/egypt/pyramid-sphinx.png'); background-position: center 56%; }
+.scene-pyramid-sitting { background-image: image-set(url('../assets/egypt/pyramid-boy-sitting.avif') type("image/avif"), url('../assets/egypt/pyramid-boy-sitting.webp') type("image/webp"), url('../assets/egypt/pyramid-boy-sitting.png') type("image/png")); background-position: center 58%; }
+.scene-pyramid-sphinx { background-image: image-set(url('../assets/egypt/pyramid-sphinx.avif') type("image/avif"), url('../assets/egypt/pyramid-sphinx.webp') type("image/webp"), url('../assets/egypt/pyramid-sphinx.png') type("image/png")); background-position: center 56%; }

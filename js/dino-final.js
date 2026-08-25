@@ -25,7 +25,7 @@
   function say(msg){if(toast){toast.textContent='';toast.classList.remove('show')}}
   function celebrateStars(target){var host=target||(document.querySelector('.success-stars')||document.querySelector('.reward-dino'));if(!host)return;host.classList.add('star-host');var layer=document.createElement('div');layer.className='star-burst';for(var i=0;i<18;i++){var st=document.createElement('i');st.textContent=i%4===0?'★':'✦';st.style.left=(5+Math.random()*90)+'%';st.style.top=(18+Math.random()*64)+'%';st.style.setProperty('--dx',((Math.random()-.5)*90)+'px');st.style.setProperty('--dy',((-20-Math.random()*70))+'px');st.style.animationDelay=(Math.random()*.18)+'s';layer.appendChild(st)}host.appendChild(layer);setTimeout(function(){layer.remove()},1800)}
   function setProgress(step){progress.innerHTML=[1,2,3,4,5,6].map(function(n){return '<i class="'+(n<=step?'on':'')+'"></i>'}).join('')}
-  function wrapImg(src,alt){return '<span class="image-wrap"><img src="'+src+'" alt="'+(alt||'')+'" draggable="false"></span>'}
+  function wrapImg(src,alt){return '<span class="image-wrap">'+mediaPicture(src,'alt="'+(alt||'')+'" draggable="false"')+'</span>'}
   function ruText(text){return String(text).replace(/(^|\s)(и|а|но|в|во|на|до|от|с|со|к|ко|у|о|об|по|за|из|для|при|над|под)\s+/gi,function(_,lead,w){return lead+w+' '})}
   function shuffledIndices(){
     var a=[0,1,2];
@@ -142,7 +142,7 @@
       '<div class="stage-head"><strong>МИССИЯ 1 · ЗНАКОМСТВО С ДИНОЗАВРАМИ</strong><a class="stage-home" href="index.html">← Карта времени</a><span class="stage-count">'+(state.learn+1)+' из 4</span></div>'+
       '<div class="stage-body">'+
         '<div class="guided-heading"><small>ИЗУЧИ 3 ГЛАВНЫХ ПРИЗНАКА</small><h1>'+d.name+'</h1><span>'+(all?'Все признаки изучены':'Сейчас изучаем признак '+(current+1)+' из 3')+'</span></div>'+
-        '<div class="guided-workspace guided-workspace--stack"><div class="guided-photo dino-photo--'+d.id+'"><div class="guided-image-layer"><img class="guided-scene" src="'+d.img+'" alt="'+d.name+'" draggable="false">'+marker+zoom+'</div></div>'+explanation+'</div>'+
+        '<div class="guided-workspace guided-workspace--stack"><div class="guided-photo dino-photo--'+d.id+'"><div class="guided-image-layer">'+mediaPicture(d.img,'class="guided-scene" alt="'+d.name+'" draggable="false"',{eager:true})+marker+zoom+'</div></div>'+explanation+'</div>'+
         '<div class="guided-footer"><div class="guided-progress"><span>Изучено: <b>'+seen.length+' из 3</b></span>'+[0,1,2].map(function(i){return '<i class="'+(i<seen.length?'on':'')+'"></i>'}).join('')+'</div>'+
         (all?'<button class="primary" data-act="learn-next">'+(state.learn<3?'Следующий динозавр →':'Проверить себя →')+'</button>':'<span class="guided-hint">Один признак за раз.</span>')+'</div>'+
       '</div></section>';
@@ -168,7 +168,7 @@
     {answer:'Стегозавр',img:'assets/dino/stegosaurus-new.jpg',fact:'Большие пластины шли вдоль спины и помогают легко узнать стегозавра.'}
   ];
   function fossilRevealMarkup(meta,nextLabel){
-    return '<div class="fossil-success fossil-success--reveal"><img src="'+meta.img+'" alt="'+meta.answer+'"><div class="fossil-reveal-copy"><div class="fossil-reveal-text"><b>Верно! '+meta.answer+'.</b><span>'+meta.fact+'</span></div><button class="primary fossil-reveal-next" data-act="fossil-next">'+nextLabel+'</button></div></div>';
+    return '<div class="fossil-success fossil-success--reveal">'+mediaPicture(meta.img,'alt="'+meta.answer+'"',{eager:true})+'<div class="fossil-reveal-copy"><div class="fossil-reveal-text"><b>Верно! '+meta.answer+'.</b><span>'+meta.fact+'</span></div><button class="primary fossil-reveal-next" data-act="fossil-next">'+nextLabel+'</button></div></div>';
   }
 
   function renderFossilComplete(){
@@ -181,7 +181,7 @@
           <span class="stage-count">3 из 3</span>
         </div>
         <div class="stage-body fossil-summary-stage">
-          <img class="fossil-summary-bg" src="assets/dino/mission2-complete-scene-v153.png" alt="Мальчик и три находки динозавров">
+          ${mediaPicture('assets/dino/mission2-complete-scene-v153.png','class="fossil-summary-bg" alt="Мальчик и три находки динозавров"',{eager:true})}
           <div class="fossil-summary-card" role="region" aria-label="Итоги находок">
             <div class="fossil-summary-mark">✓</div>
             <h1>Все находки определены!</h1>
@@ -266,14 +266,14 @@
     app.innerHTML='<section class="panel fossil-mission-panel"><div class="stage-head"><strong>МИССИЯ 2 · ПАЛЕОНТОЛОГИЧЕСКОЕ РАССЛЕДОВАНИЕ</strong><a class="stage-home" href="index.html">← Карта</a><span class="stage-count">'+state.skeleton+' из 3</span></div><div class="stage-body">'+
       '<div class="fossil-task"><div class="fossil-task-icon">🔎</div><div><h2>Определи динозавра по находке</h2><p><b>Рассмотри находку крупным планом.</b> Вспомни признаки динозавров и выбери хозяина находки.</p></div></div>'+
       '<div class="fossil-investigation">'+
-        '<div class="fossil-clue-card"><div class="fossil-clue-image '+c.imgClass+'"><img src="'+c.img+'" alt="'+c.clue+'"></div><div class="fossil-clue-copy"><small>НАХОДКА '+(state.skeleton+1)+' ИЗ 3</small><h3>'+c.clue+'</h3><p>'+c.hint+'</p></div></div>'+
+        '<div class="fossil-clue-card"><div class="fossil-clue-image '+c.imgClass+'">'+mediaPicture(c.img,'alt="'+c.clue+'"',{eager:true})+'</div><div class="fossil-clue-copy"><small>НАХОДКА '+(state.skeleton+1)+' ИЗ 3</small><h3>'+c.clue+'</h3><p>'+c.hint+'</p></div></div>'+
         '<div class="fossil-question '+(solved?'fossil-question--solved':'')+'">'+(solved?fossilRevealMarkup(fossilRevealMeta[state.skeleton],state.skeleton===2?'Завершить →':'Следующая находка →'):'<h2>'+c.question+'</h2><div class="fossil-choices fossil-choices--text">'+options+'</div><div id="fossil-feedback" class="fossil-feedback"><span>Выбери один вариант.</span></div>')+'</div>'+
       '</div>'+
       '<div class="mission-footer fossil-footer"><span class="note">Шаг '+(state.skeleton+1)+' из 3</span><span class="step-dots">'+dots+'</span></div>'+
       '</div></section>';
   }
 
-  function renderCatastrophe(){setProgress(3);app.innerHTML='<section class="panel catastrophe-approved"><div class="stage-head"><strong>МИССИЯ 3 · КАТАСТРОФА</strong><a class="stage-home" href="index.html">← Карта</a><span style="margin-left:auto">Спасено: <b id="cat-count">'+state.cat+'/3</b></span></div><div class="stage-body"><div class="cat-date">≈ 66 млн лет назад</div><div class="drag-scene" id="cat-scene" style="background-image:url(assets/dino/catastrophe-stage-approved-open.jpg)"><div class="chest-zone" data-drop="chest" aria-label="Контейнер палеонтолога для находок"></div><div class="cat-done cat-done-over-chest" id="cat-done" hidden><b>Готово!</b><span>Ты спас все 3 находки.</span></div><div class="fossil-tray"><div class="drag-item drag-item--plate" data-drag="plate"><img src="assets/dino/finding-plate-generated.png"><b>Пластина стегозавра</b></div><div class="drag-item" data-drag="tooth"><img src="assets/dino/finding-tooth-generated.png"><b>Зуб тираннозавра</b></div><div class="drag-item" data-drag="footprint"><img src="assets/dino/finding-footprint-cast.png"><b>Слепок следа динозавра</b></div></div></div><div class="mission-footer cat-footer-final"><div class="cat-action" id="cat-action"><b>Собери 3 находки</b> — перетащи их в контейнер справа.</div><button class="primary" id="cat-next" data-act="show-findings-summary" '+(state.cat<3?'hidden':'')+'>Дальше →</button></div></div></section>';bindDrag('.fossil-tray .drag-item','.chest-zone',function(){state.cat++;document.getElementById('cat-count').textContent=state.cat+'/3';if(state.cat>=3){var scene=document.getElementById('cat-scene');scene.classList.add('cat-complete');scene.style.backgroundImage='url(assets/dino/catastrophe-stage-approved-closed.png)';var ca=document.getElementById('cat-action');if(ca){ca.hidden=true}var done=document.getElementById('cat-done');if(done){done.hidden=false}var next=document.getElementById('cat-next');next.hidden=false;say('Готово! Ты спас все 3 находки.')}},true)}
+  function renderCatastrophe(){setProgress(3);app.innerHTML='<section class="panel catastrophe-approved"><div class="stage-head"><strong>МИССИЯ 3 · КАТАСТРОФА</strong><a class="stage-home" href="index.html">← Карта</a><span style="margin-left:auto">Спасено: <b id="cat-count">'+state.cat+'/3</b></span></div><div class="stage-body"><div class="cat-date">≈ 66 млн лет назад</div><div class="drag-scene" id="cat-scene" style="background-image:'+mediaBg('assets/dino/catastrophe-stage-approved-open.jpg')+'"><div class="chest-zone" data-drop="chest" aria-label="Контейнер палеонтолога для находок"></div><div class="cat-done cat-done-over-chest" id="cat-done" hidden><b>Готово!</b><span>Ты спас все 3 находки.</span></div><div class="fossil-tray"><div class="drag-item drag-item--plate" data-drag="plate">'+mediaPicture('assets/dino/finding-plate-generated.png','alt="Пластина стегозавра"',{eager:true})+'<b>Пластина стегозавра</b></div><div class="drag-item" data-drag="tooth">'+mediaPicture('assets/dino/finding-tooth-generated.png','alt="Зуб тираннозавра"',{eager:true})+'<b>Зуб тираннозавра</b></div><div class="drag-item" data-drag="footprint">'+mediaPicture('assets/dino/finding-footprint-cast.png','alt="Слепок следа динозавра"',{eager:true})+'<b>Слепок следа динозавра</b></div></div></div><div class="mission-footer cat-footer-final"><div class="cat-action" id="cat-action"><b>Собери 3 находки</b> — перетащи их в контейнер справа.</div><button class="primary" id="cat-next" data-act="show-findings-summary" '+(state.cat<3?'hidden':'')+'>Дальше →</button></div></div></section>';bindDrag('.fossil-tray .drag-item','.chest-zone',function(){state.cat++;document.getElementById('cat-count').textContent=state.cat+'/3';if(state.cat>=3){var scene=document.getElementById('cat-scene');scene.classList.add('cat-complete');scene.style.backgroundImage=mediaBg('assets/dino/catastrophe-stage-approved-closed.png');var ca=document.getElementById('cat-action');if(ca){ca.hidden=true}var done=document.getElementById('cat-done');if(done){done.hidden=false}var next=document.getElementById('cat-next');next.hidden=false;say('Готово! Ты спас все 3 находки.')}},true)}
   var birdCards=[{id:'feathered',img:'assets/dino/bird-feathered-unified.jpg',label:'Пернатый динозавр',era:'Мезозой · более 66 млн лет назад',info:'Перья появились ещё у некоторых динозавров.'},{id:'ancient',img:'assets/dino/bird-ancient-unified.jpg',label:'Древняя птица',era:'Мезозой · около 150 млн лет назад',info:'У древних птиц сочетались перья и черты динозавров.'},{id:'modern',img:'assets/dino/bird-cassowary-unified.jpg',label:'Современный казуар',era:'Наше время',info:'Современные птицы — живые потомки динозавров.'}];
   function renderBirds(){
     setProgress(4);
@@ -290,7 +290,7 @@
   }
   function renderFinalIdentify(){
     setProgress(5);
-    app.innerHTML='<section class="panel compact-panel final-panel"><div class="stage-head"><strong>ФИНАЛ · ЗАДАНИЕ 1 ИЗ 2</strong><a class="stage-home" href="index.html">← Карта</a></div><div class="stage-body"><div class="final-instruction"><b>Проверь себя: кого ты узнаешь по пластинам на спине и шипам на хвосте?</b></div><div class="approved-dino-cards"><button type="button" class="approved-dino-card" data-act="final-id" data-value="Тираннозавр" aria-label="Тираннозавр"><img src="assets/dino-cards-new/tyrannosaurus.png?v=66" alt="Тираннозавр"></button><button type="button" class="approved-dino-card" data-act="final-id" data-value="Стегозавр" aria-label="Стегозавр"><img src="assets/dino-cards-new/stegosaurus.png?v=66" alt="Стегозавр"></button><button type="button" class="approved-dino-card" data-act="final-id" data-value="Трицератопс" aria-label="Трицератопс"><img src="assets/dino-cards-new/triceratops.png?v=66" alt="Трицератопс"></button></div><div id="identify-result" class="inline-feedback-wrap"></div></div></section>';
+    app.innerHTML='<section class="panel compact-panel final-panel"><div class="stage-head"><strong>ФИНАЛ · ЗАДАНИЕ 1 ИЗ 2</strong><a class="stage-home" href="index.html">← Карта</a></div><div class="stage-body"><div class="final-instruction"><b>Проверь себя: кого ты узнаешь по пластинам на спине и шипам на хвосте?</b></div><div class="approved-dino-cards"><button type="button" class="approved-dino-card" data-act="final-id" data-value="Тираннозавр" aria-label="Тираннозавр">'+mediaPicture('assets/dino-cards-new/tyrannosaurus.png?v=66','alt="Тираннозавр"')+'</button><button type="button" class="approved-dino-card" data-act="final-id" data-value="Стегозавр" aria-label="Стегозавр">'+mediaPicture('assets/dino-cards-new/stegosaurus.png?v=66','alt="Стегозавр"')+'</button><button type="button" class="approved-dino-card" data-act="final-id" data-value="Трицератопс" aria-label="Трицератопс">'+mediaPicture('assets/dino-cards-new/triceratops.png?v=66','alt="Трицератопс"')+'</button></div><div id="identify-result" class="inline-feedback-wrap"></div></div></section>';
   }
   var finalCards=[
     {img:'assets/final-story-new/dinosaurs.png'},
@@ -309,7 +309,7 @@
           '<div class="final-story-grid" id="final-order">'+
             state.finalOrder.map(function(i,pos){
               var c=finalCards[i];
-              return '<div class="order-card final-story-card" data-order-index="'+pos+'"><img src="'+c.img+'" alt="" draggable="false"></div>';
+              return '<div class="order-card final-story-card" data-order-index="'+pos+'">'+mediaPicture(c.img,'alt="" draggable="false"')+'</div>';
             }).join('')+
           '</div>'+
           '<div class="mission-footer final-check-footer"><span class="note"></span><button class="primary" data-act="check-final">Проверить</button></div>'+
@@ -322,7 +322,7 @@
   function renderReward(){
     setProgress(6);
     localStorage.setItem('chronosphere-dino-complete','1');
-    app.innerHTML='<section class="reward-native" aria-label="Экспедиция завершена"><img class="reward-native__art" src="assets/dino/reward-final-v168.jpg" alt="Мальчик и динозавры в доисторическом мире"><div class="reward-native__bottom"><div class="reward-native__copy"><h1>Экспедиция завершена!</h1><p class="reward-native__lead">Ты прошёл экспедицию и узнал,<br>как менялся мир динозавров.</p><p class="reward-native__thanks">Спасибо за твою любознательность и отвагу!</p></div><div class="reward-native__actions"><button class="reward-native__restart" data-act="restart">↻ Пройти ещё раз</button><a class="reward-native__home" href="index.html">Вернуться на Карту времени →</a></div></div></section>';
+    app.innerHTML='<section class="reward-native" aria-label="Экспедиция завершена">'+mediaPicture('assets/dino/reward-final-v168.jpg','class="reward-native__art" alt="Мальчик и динозавры в доисторическом мире"',{eager:true})+'<div class="reward-native__bottom"><div class="reward-native__copy"><h1>Экспедиция завершена!</h1><p class="reward-native__lead">Ты прошёл экспедицию и узнал,<br>как менялся мир динозавров.</p><p class="reward-native__thanks">Спасибо за твою любознательность и отвагу!</p></div><div class="reward-native__actions"><button class="reward-native__restart" data-act="restart">↻ Пройти ещё раз</button><a class="reward-native__home" href="index.html">Вернуться на Карту времени →</a></div></div></section>';
   }
 
   app.addEventListener('click',function(e){

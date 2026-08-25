@@ -31,7 +31,7 @@
     era.events.forEach(function (event) {
       if (!event.image) return;
       var image = new Image();
-      image.src = event.image;
+      image.src = event.image.replace(/\.(png|jpe?g)$/i, ".avif");
     });
   }
 
@@ -459,7 +459,7 @@
     app.innerHTML =
       '<section class="history-event-screen">' + '<div class="learning-heading"><span>Сейчас изучаем</span><strong>' + escapeHtml(learningTopic(event)) + '</strong></div>' +
       '<div class="history-scene history-scene--gagarin gagarin-orbit-scene" data-satellite-scene>' +
-      '<img class="event-scene-photo event-scene-photo--gagarin" src="assets/gagarin-1961-color.png" alt="Юрий Гагарин в космическом шлеме">' +
+      mediaPicture("assets/gagarin-1961-color.png", 'class="event-scene-photo event-scene-photo--gagarin" alt="Юрий Гагарин в космическом шлеме"', { eager: true }) +
       '<span class="event-scene-shade" aria-hidden="true"></span>' +
       '<span class="gagarin-earth" aria-hidden="true"></span>' +
       eventSceneTopMarkup(event) +
@@ -479,9 +479,11 @@
       '<div class="history-scene history-scene--moon' +
       (learningActionDone ? " is-complete" : "") +
       '">' +
-      '<img class="event-scene-photo event-scene-photo--moon" src="' +
-      escapeHtml(event.image) +
-      '" alt="Астронавт и лунный модуль на поверхности Луны">' +
+      mediaPicture(
+        escapeHtml(event.image),
+        'class="event-scene-photo event-scene-photo--moon" alt="Астронавт и лунный модуль на поверхности Луны"',
+        { eager: true }
+      ) +
       '<span class="event-scene-shade" aria-hidden="true"></span>' +
       eventSceneTopMarkup(event) +
       '<div class="history-scene__copy"><span class="history-scene__year">' +
@@ -731,9 +733,9 @@
     return (
       '<span class="' +
       classes +
-      '"><img src="' +
-      escapeHtml(event.image) +
-      '" alt=""></span>'
+      '">' +
+      mediaPicture(escapeHtml(event.image), 'alt=""') +
+      "</span>"
     );
   }
 
